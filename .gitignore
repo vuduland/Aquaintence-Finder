@@ -1,2 +1,5 @@
-.DS_Store
+/.DS_Store
 /node_modules
+/friend.code-workspace
+13-express
+14-handlebars
