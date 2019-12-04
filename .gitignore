@@ -1,6 +1,7 @@
-/.DS_Store
 /node_modules
-/friend.code-workspace
-13-express
-14-handlebars
+/homework_instructions.md
 app/data/friend.code-workspace
+app/public/test.html
+app/data/friendslisttest.js
+app/public/hometest.html
+app/.DS_Store
