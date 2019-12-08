@@ -1,7 +1,10 @@
 /node_modules
 /homework_instructions.md
-app/data/friend.code-workspace
 app/public/test.html
 app/data/friendslisttest.js
 app/public/hometest.html
 app/.DS_Store
+.env
+.DS_Store
+app/public/homeTest2.html
+app/public/test2.html
