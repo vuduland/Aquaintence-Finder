@@ -11,15 +11,16 @@ module.exports = function (app) {
 
   //API GET requests; handles when users visit a page; when a link is visited the user is shown a JSON of table data
 
-  app.get('', (req, res) => {
+  app.get('/api/friends', (req, res) => {
     res.json(surveyData);
   });
 
   //API POST requests; handles when users submit a form and pushes the data to the appropriate array in friends.js
   // user submits form -> server -> data to surveyData array
 
-  app.post('', (req, res) => {
-
+  app.post('/api/friends', (req, res) => {
+    surveyData.push(req.body);
+    res.json(true);
   });
 
 }
