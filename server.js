@@ -1,26 +1,26 @@
-var express = require('express');
-var path = require('path');
+const express = require('express');
+const path = require('path');
 
 // create express server and initial port/listener:
 
-var app = express();
-var PORT = process.env.PORT || 8080;
+const app = express();
+const PORT = process.env.PORT || 8080;
 
 // sets up data parsing on express server:
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//router:
+// router:
 
-//works; must fill in routes to have the below
+// works; must fill in routes to have the below
 
-// require('./app/routing/apiRoutes')(app);
-// require('./app/routing/htmlRoutes')(app);
+require('./app/routing/apiRoutes')(app);
+require('./app/routing/htmlRoutes')(app);
 
 // start server:
 
 app.listen(PORT, function () {
-  console.log(`App listening on PORT: ${PORT}`);
+  console.log('App listening on PORT: ' + PORT);
 });
 

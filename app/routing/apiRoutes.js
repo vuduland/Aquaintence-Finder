@@ -4,21 +4,35 @@ A GET route with the url /api/friends. This will be used to display a JSON of al
 A POST routes /api/friends. This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
 
 */
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+let surveyDataObj = require('../data/friends');
 
-var surveyData = require('../data/friends');
+
+
 
 module.exports = function (app) {
 
   //API GET requests; handles when users visit a page; when a link is visited the user is shown a JSON of table data
 
-  app.get('', (req, res) => {
-    res.json(surveyData);
+  app.get('/api/friends', (req, res) => {
+    app.use(bodyParser.json());
+    // res.json(surveyDataObj);
   });
 
   //API POST requests; handles when users submit a form and pushes the data to the appropriate array in friends.js
-  // user submits form -> server -> data to surveyData array
+  // user submits form -> server -> data to surveyDataObj array
 
-  app.post('', (req, res) => {
+  app.post('/api/friends', (req, res) => {
+    console.log(req.body.people.scores)
+    surveyDataObj.push(req.body.people);
+    // res.json(true);
+    var acquaintance = req.body;
+    acquaintance.route = acquaintance.people.name.replace(/\s+/g, '').toLowerCase();
+
+    console.log(`apiRoutes line 34 acquaintance = ${acquaintance}`);
+    console.log(`apiRoutes line 32 acquaintance.name = ${acquaintance.name}`);
 
   });
 
