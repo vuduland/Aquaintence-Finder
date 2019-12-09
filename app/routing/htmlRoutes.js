@@ -2,12 +2,13 @@
 
 A GET Route to /survey which should display the survey page.
 A default, catch-all route that leads to home.html which displays the home page. */
-
+var express = require('express');
 var path = require('path');
+var app = express;
 
 //routes:
 
-module.exports = function (app) {
+var htmlRoutes = function (app) {
 
   // HTML GET requests; handles when users visit a page
 
@@ -26,3 +27,5 @@ module.exports = function (app) {
   });
 
 };
+
+module.exports = htmlRoutes(app);
