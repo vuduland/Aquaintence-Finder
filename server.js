@@ -1,10 +1,10 @@
-const express = require('express');
-const path = require('path');
+var express = require('express');
+var path = require('path');
 
 // create express server and initial port/listener:
 
-const app = express();
-const PORT = process.env.PORT || 8080;
+var app = express();
+var PORT = process.env.PORT || 8080;
 
 // sets up data parsing on express server:
 
