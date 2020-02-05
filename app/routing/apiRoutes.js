@@ -1,44 +1,46 @@
-var friendsObject = require('../data/friends');
-var app = require('express');
+// var app = require('express')();
+var friendsArr = require('../data/friends');
 
 module.exports = function(app) {
   app.get('/api/friends', function(req, res) {
-    res.json(friendsObject);
+    res.json(friendsArr);
   });
 
   app.post('/api/friends', function(req, res) {
-    var friendo = {
+    var aNewFiend = {
       name: '',
       photo: '',
-      diff: Number
+      diff: Infinity
     };
 
     var inputData = req.body;
-    var comp = inputData.scores;
-    var difference;
+    console.log(inputData);
+    var userScores = inputData.scores;
+    var totalDiff;
 
-    for (var i = 0; i < friendsObject.length; i++) {
-      var friendForNow = friendsObject[i];
-      difference = 0;
+    for (var i = 0; i < friendsArr.length; i++) {
+      var aquaintence = friendsArr[i];
+      totalDiff = 0;
 
-      console.log(friendForNow.name);
+      console.log(aquaintence.name);
 
-      for (let j = 0; j < friendForNow.scores.length; j++) {
-        let score = friendForNow.scores[j];
-        let userScore = comp[j];
-        difference += Math.abs(parseInt(userScore)) - parseInt(score);
+      for (let j = 0; j < aquaintence.scores.length; j++) {
+        let score = aquaintence.scores[j];
+        userScore = userScores[j];
+
+        totalDiff += Math.abs(parseInt(userScore)) - parseInt(score);
       }
 
-      if (difference <= match.friendo.diff) {
-        match.name = friendForNow.name;
-        match.photo = friendForNow.photo;
-        match.diff = difference;
+      if (totalDiff <= aNewFiend.diff) {
+        aNewFiend.name = aquaintence.name;
+        aNewFiend.photo = aquaintence.photo;
+        aNewFiend.diff = totalDiff;
       }
     }
 
-    friendsObject.push(inputData);
+    friendsArr.push(inputData);
 
-    res.json(match);
+    res.json(aNewFiend);
   });
 };
 
