@@ -1,9 +1,9 @@
 var express = require('express');
-var path = require('path');
+var app = express();
+// var path = require('path');
 
 // create express server and initial port/listener:
 
-var app = express();
 var PORT = process.env.PORT || 8080;
 
 // sets up data parsing on express server:
@@ -20,7 +20,6 @@ require('./app/routing/htmlRoutes')(app);
 
 // start server:
 
-app.listen(PORT, function () {
+app.listen(PORT, function() {
   console.log('App listening on PORT: ' + PORT);
 });
-
